@@ -1,0 +1,164 @@
+import { View, Text, Button, StyleSheet, TouchableOpacity, TextInput, Image, Touchable } from 'react-native'
+import { router } from 'expo-router'
+import { Ionicons } from '@expo/vector-icons';
+import { AutoFocus } from 'expo-camera/build/legacy/Camera.types';
+import React, { useState } from "react";
+import CheckBox from '@react-native-community/checkbox';
+
+export default function home() {
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const toggleCheckbox = () => {
+    setIsChecked(!isChecked);
+  };
+
+  return (
+    <View style={styles.container}>
+
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => router.push('/index')} 
+      >
+        <Ionicons name="arrow-back" size={24} color="#8e8e8e" style={styles.icon} />
+      
+      </TouchableOpacity>
+
+      <Text style={styles.text}>Hello Ash!</Text>
+      <Text style={styles.text1}>Find your favorite plants here</Text>
+
+      <TextInput
+        style={styles.input}
+        // onChangeText={onChangeNumber}
+        // value={Number}
+        placeholder="             Search"
+        keyboardType="default"
+        textAlign= 'left'
+      />
+
+      <View style={styles.textViewFav}>
+        <Text style={styles.textFav}>My Favourites</Text>
+        <TouchableOpacity style={styles.textView} onPress={() => router.push('/profile')}>
+          <Text style={styles.viewAll}>View All</Text>
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity style={styles.viewFav} onPress={() => router.push('/profile')}>
+        <View style={styles.viewFavIn}>
+          <Image
+            style={styles.imageFav}
+            source={require('../../assets/images/aglaonema.png')}
+          />
+
+          <View style={styles.viewFavInText}>
+            <Text style={styles.plantName}>Aglaonema</Text>
+            <Text style={styles.plantType}>Indoor plant</Text>
+
+            <Ionicons 
+              name={isChecked ? "checkbox-outline" : "square-outline"} 
+              size={24} 
+              color="#243F20" 
+          />
+
+          </View>
+        </View>
+      </TouchableOpacity>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // justifyContent: "center",
+    // alignItems: "center",
+    backgroundColor: "#091908"
+  },
+  button: {
+    flexDirection: 'row', // Arrange children in a row
+    alignItems: 'center', // Align items vertically centered
+    justifyContent: 'center', // Align items horizontally centered
+    width: 100, 
+    height: 50,
+    top: 30,
+    left: 5, 
+    backgroundColor: "#0F1C0D"
+  },
+  text: {
+    fontSize: 31,
+    fontWeight: '100',
+    color: 'white',
+    marginLeft: 50,
+    marginTop: 40,
+    marginBottom: 10
+  },
+  text1: {
+    fontSize: 18,
+    color: 'white',
+    marginLeft: 50
+  },
+  icon: {
+    marginRight: 50,
+    marginLeft: 0
+  },
+  input: {
+      backgroundColor: '#eeeeee',
+      width: 295,
+      height: 50,
+      borderRadius: 25,
+      marginTop: 20,
+      marginLeft: 42
+  },
+  textFav: {
+    fontSize: 20,
+    color: 'white',
+    marginLeft: 50,
+    marginTop: 30
+  },
+  textView: {
+    fontSize: 14,
+    fontWeight: 'thin',
+    color: 'white',
+    marginLeft: 125,
+    marginTop: 36
+  },
+  textViewFav: {
+    flexDirection: 'row'
+  },
+  viewFav: {
+    backgroundColor: "#eeeeee",
+    width: 295,
+    height: 150,
+    alignSelf: 'center',
+    borderRadius: 25,
+    marginTop: 20
+  },
+  viewAll: {
+    color: "#eeeeee"
+  },
+  imageFav: {
+    height: 120,
+    width: 100,
+    borderRadius: 20,
+    top: 15,
+    bottom: 15,
+    left: 15
+  },
+  viewFavIn: {
+    flexDirection: 'row'
+  },
+  viewFavInText: {
+    // flexDirection: 'column'
+    marginLeft: 40,
+    marginTop: 30
+  },
+  plantName: {
+    fontSize: 25
+  },
+  plantType: {
+    fontSize: 18
+  },
+  checkBox: {
+    marginRight: 10,
+  }
+});
