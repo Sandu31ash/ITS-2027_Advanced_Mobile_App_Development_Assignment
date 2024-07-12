@@ -1,47 +1,104 @@
-import { View, Text, FlatList, StyleSheet } from 'react-native'
+import { View, Text, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
+import { router } from 'expo-router';
 
 export default function profile() {
 
+    return (
+      <View style={styles.container}>
 
-    const DATA = [
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-          title: 'First Item',
-        },
-        {
-          id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-          title: 'Second Item',
-        },
-        {
-          id: '58694a0f-3da1-471f-bd96-145571e29d72',
-          title: 'Third Item',
-        },
-      ];
+        <View style={styles.profileCon}>
 
-  return (
-    <View>
+          <Text style={styles.profile1}>Profile</Text>
 
-<FlatList
-        data={DATA}
-        renderItem={({item}) => <Text style={styles.nametext}>{item.title}</Text>}      //render item kiyana ekta component ekk dagnna puluwn
-        keyExtractor={item => item.id}
-      />
+          <TouchableOpacity style={styles.viewFavIn} onPress={() => router.push('/plants')}>
+            <Image
+              style={styles.settings}
+              source={require('../../assets/images/settings.png')}
+            />
+          </TouchableOpacity>
+        </View>
 
-      <Text>profile</Text>
-    </View>
-    
+
+        <View style={styles.viewFav}>
+      <TouchableOpacity style={styles.viewFavIn} onPress={() => router.push('/profile')}>
+        <Image
+          style={styles.imageFav}
+          source={require('../../assets/images/pro-pic.png')}
+        />
+        </TouchableOpacity>
+
+        <View style={styles.viewFavInText}>
+          <Text style={styles.plantName}>Ash</Text>
+
+        </View>
+
+      </View>
+
+      
+      </View>
   )
-
-  
 
 }
 
 const styles = StyleSheet.create({
-    nametext: {
-      height:100,
-      width:100,
-      backgroundColor: 'green',
-      marginTop:12
-    }
-  });
+  container: {
+    flex: 1,
+    // justifyContent: "center",
+    // alignItems: "center",
+    backgroundColor: "#091908"
+  },
+  profileCon: {
+    flexDirection: 'row'
+  },
+  profile1: {
+    color: "#eeeeee",
+    fontSize: 25,
+    marginTop: 50,
+    marginLeft: 60
+    // marginBottom: 0
+  },
+  viewFav: {
+    flexDirection: 'column',
+    // alignContent: 'center',
+    alignItems: 'center',
+    backgroundColor: "#eeeeee",
+    width: 295,
+    height: 280,
+    alignSelf: 'center',
+    borderRadius: 25
+    // marginTop: 0
+  },
+  viewAll: {
+    color: "#eeeeee"
+  },
+  viewFavIn: {
+    // flexDirection: 'row',
+    height: 120,
+    width: 110,
+    borderRadius: 20,
+    marginTop: 30,
+  },
+  imageFav: {
+    height: 150,
+    width: 150,
+    borderRadius: 120
+  },
+  viewFavInText: {
+    // flexDirection: 'column'
+    marginLeft: 40,
+    marginTop: 30
+  },
+  plantName: {
+    fontSize: 30,
+    fontWeight: '700',
+    color: "#091908",
+    marginTop: 40
+  },
+  settings: {
+    height: 25,
+    width: 25,
+    marginTop: 40,
+    marginLeft: 175
+  }
+});

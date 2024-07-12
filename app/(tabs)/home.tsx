@@ -43,26 +43,58 @@ export default function home() {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.viewFav} onPress={() => router.push('/profile')}>
-        <View style={styles.viewFavIn}>
+      
+        <View style={styles.viewFav}>
+        <TouchableOpacity style={styles.viewFavIn} onPress={() => router.push('/profile')}>
           <Image
             style={styles.imageFav}
             source={require('../../assets/images/aglaonema.png')}
           />
+          </TouchableOpacity>
 
           <View style={styles.viewFavInText}>
             <Text style={styles.plantName}>Aglaonema</Text>
             <Text style={styles.plantType}>Indoor plant</Text>
 
-            <Ionicons 
+            <Ionicons
+              style={styles.checkBox} 
               name={isChecked ? "checkbox-outline" : "square-outline"} 
-              size={24} 
-              color="#243F20" 
-          />
+              size={27} 
+              color="#091908" 
+            />
 
           </View>
         </View>
-      </TouchableOpacity>
+      
+        <View style={styles.textViewFav}>
+          <Text style={styles.textFav}>Most Popular</Text>
+          <TouchableOpacity style={styles.textView} onPress={() => router.push('/profile')}>
+            <Text style={styles.viewAll}>View All</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.viewFav}>
+        <TouchableOpacity style={styles.viewFavIn} onPress={() => router.push('/profile')}>
+          <Image
+            style={styles.imageFav}
+            source={require('../../assets/images/neon-pothos.png')}
+          />
+          </TouchableOpacity>
+
+          <View style={styles.viewFavInText}>
+            <Text style={styles.plantName}>Neon Pothos</Text>
+            <Text style={styles.plantType}>Indoor plant</Text>
+
+            <Ionicons
+              style={styles.checkBox} 
+              name={isChecked ? "checkbox-outline" : "square-outline"} 
+              size={27} 
+              color="#091908" 
+            />
+
+          </View>
+        </View>
+
     </View>
   )
 }
@@ -113,39 +145,46 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'white',
     marginLeft: 50,
-    marginTop: 30
+    marginTop: 25
   },
   textView: {
     fontSize: 14,
     fontWeight: 'thin',
     color: 'white',
     marginLeft: 125,
-    marginTop: 36
+    marginTop: 31
   },
   textViewFav: {
     flexDirection: 'row'
   },
   viewFav: {
+    flexDirection: 'row',
     backgroundColor: "#eeeeee",
     width: 295,
     height: 150,
     alignSelf: 'center',
     borderRadius: 25,
-    marginTop: 20
+    marginTop: 15
   },
   viewAll: {
     color: "#eeeeee"
   },
-  imageFav: {
+  viewFavIn: {
+    flexDirection: 'row',
     height: 120,
-    width: 100,
+    width: 110,
     borderRadius: 20,
     top: 15,
     bottom: 15,
-    left: 15
+    left: 5
   },
-  viewFavIn: {
-    flexDirection: 'row'
+  imageFav: {
+    height: 120,
+    width: 110,
+    borderRadius: 20,
+    top: 1,
+    bottom: 15,
+    left: 5
   },
   viewFavInText: {
     // flexDirection: 'column'
@@ -153,12 +192,16 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   plantName: {
-    fontSize: 25
+    fontSize: 25,
+    color: "#091908"
   },
   plantType: {
-    fontSize: 18
+    fontSize: 18,
+    marginTop: 5,
+    marginBottom: 15,
+    color: "#091908"
   },
   checkBox: {
-    marginRight: 10,
+    left: 80,
   }
 });
