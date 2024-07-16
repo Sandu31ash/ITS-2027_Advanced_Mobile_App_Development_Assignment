@@ -4,8 +4,14 @@ import { Ionicons } from '@expo/vector-icons';
 import { AutoFocus } from 'expo-camera/build/legacy/Camera.types';
 import React, { useState } from "react";
 import CheckBox from '@react-native-community/checkbox';
+import { Icon } from 'react-native-vector-icons/Icon';
+import { blue, red } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
+import { useNavigation } from '@react-navigation/native';
+// import { plantdetail } from '../plantdetail';
 
 export default function home() {
+
+  const navigation = useNavigation();
 
   const [isChecked, setIsChecked] = useState(false);
 
@@ -38,37 +44,39 @@ export default function home() {
 
       <View style={styles.textViewFav}>
         <Text style={styles.textFav}>My Favourites</Text>
-        <TouchableOpacity style={styles.textView} onPress={() => router.push('/profile')}>
+        <TouchableOpacity style={styles.textView} onPress={() => router.push('/plants')}>
           <Text style={styles.viewAll}>View All</Text>
         </TouchableOpacity>
       </View>
 
       
         <View style={styles.viewFav}>
-        <TouchableOpacity style={styles.viewFavIn} onPress={() => router.push('/profile')}>
-          <Image
-            style={styles.imageFav}
-            source={require('../../assets/images/aglaonema.png')}
-          />
+          <TouchableOpacity style={styles.viewFavIn} onPress={() => navigation.navigate('plantdetail')}>
+            <Image
+              style={styles.imageFav}
+              source={require('../../assets/images/aglaonema.png')}
+            />
           </TouchableOpacity>
 
           <View style={styles.viewFavInText}>
             <Text style={styles.plantName}>Aglaonema</Text>
             <Text style={styles.plantType}>Indoor plant</Text>
 
-            <Ionicons
+            {/* <Ionicons
               style={styles.checkBox} 
               name={isChecked ? "checkbox-outline" : "square-outline"} 
               size={27} 
               color="#091908" 
-            />
+            /> */}
+
+            <Ionicons name="heart" size={23} style={styles.checkBox}/>
 
           </View>
         </View>
       
         <View style={styles.textViewFav}>
           <Text style={styles.textFav}>Most Popular</Text>
-          <TouchableOpacity style={styles.textView} onPress={() => router.push('/profile')}>
+          <TouchableOpacity style={styles.textView} onPress={() => router.push('/plants')}>
             <Text style={styles.viewAll}>View All</Text>
           </TouchableOpacity>
         </View>
@@ -85,13 +93,16 @@ export default function home() {
             <Text style={styles.plantName}>Neon Pothos</Text>
             <Text style={styles.plantType}>Indoor plant</Text>
 
-            <Ionicons
+            {/* <Ionicons
               style={styles.checkBox} 
               name={isChecked ? "checkbox-outline" : "square-outline"} 
               size={27} 
               color="#091908" 
-            />
+            /> */}
 
+            {/* <Ionicons name="heart-outline" size={23} color={plants.like ? red : blue} style={styles.checkBox}/> */}
+
+            <Ionicons name="heart-outline" size={23} style={styles.checkBox}/>
           </View>
         </View>
 
@@ -203,5 +214,6 @@ const styles = StyleSheet.create({
   },
   checkBox: {
     left: 80,
+    color: "#3A5A40"
   }
 });
