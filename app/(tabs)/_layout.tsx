@@ -10,7 +10,7 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name="home" color={focused ? '#004d00' : color} size={size} />
+            <Ionicons name={focused ? 'home' : 'home-outline'} color='#004d00' size={21} />
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{ color: focused ? '#004d00' : 'gray' }}>Home</Text>
@@ -23,7 +23,7 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name="leaf" color={focused ? '#004d00' : color} size={size} />
+            <Ionicons name={focused ? 'leaf' : 'leaf-outline'} color='#004d00' size={22} />
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{ color: focused ? '#004d00' : 'gray' }}>Plants</Text>
@@ -36,7 +36,7 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name="camera" color={focused ? '#004d00' : color} size={size} />
+            <Ionicons name={focused ? 'camera' : 'camera-outline'} color='#004d00' size={23} />
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{ color: focused ? '#004d00' : 'gray' }}>Camera</Text>
@@ -49,7 +49,7 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name="bug" color={focused ? '#004d00' : color} size={size} />
+            <Ionicons name={focused ? 'bug' : 'bug-outline'} color='#004d00' size={23} />
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{ color: focused ? '#004d00' : 'gray' }}>Diseases</Text>
@@ -62,7 +62,7 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name="person" color={focused ? '#004d00' : color} size={size} />
+            <Ionicons name={focused ? 'person-circle' : 'person-circle-outline'} color='#004d00' size={25} />
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{ color: focused ? '#004d00' : 'gray' }}>Profile</Text>
