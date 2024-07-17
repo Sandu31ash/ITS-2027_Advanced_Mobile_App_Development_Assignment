@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
       marginTop: 55,
       marginBottom: 7.5,
       marginLeft: 60
-      // marginBottom: 0
     },
     flatee: {
       
@@ -102,21 +101,21 @@ const styles = StyleSheet.create({
       color: "#091908"
     },
     image: {
-      width: 90,
+      width: 100,
       height: 120,
       borderRadius: 15,
       margin: 20,
     },
     nameText: {
       marginTop: -130,
-      marginLeft: 130,
+      marginLeft: 140,
       fontSize: 24,
       color: "#091908",
       fontWeight: 'semibold'
     },
     desc: {
       marginTop: 5,
-      marginLeft: 130,
+      marginLeft: 140,
       fontSize: 17,
       color: "#091908",
       width: 140
