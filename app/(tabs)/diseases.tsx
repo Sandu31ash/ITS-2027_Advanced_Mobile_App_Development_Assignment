@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet, FlatList, Image } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import disease from '../../constants/disease';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from 'expo-router';
 
 interface Disease {
   id: number;
@@ -10,6 +12,8 @@ interface Disease {
 }
 
 export default function diseases() {
+
+  const navigation = useNavigation();
 
 
 //   const DATA = [
@@ -42,6 +46,13 @@ export default function diseases() {
 
   return (
     <View style={styles.container}>
+
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => navigation.goBack()} >
+        <Ionicons name="arrow-undo-outline" size={24} color="#b3b3b3" style={styles.icon} />
+            
+      </TouchableOpacity>
 
       <Text style={styles.diseases}>Diseases</Text>
 
@@ -76,12 +87,27 @@ const styles = StyleSheet.create({
       flex: 1,
     // justifyContent: "center",
     // alignItems: "center",
-    backgroundColor: "#091908"
+    backgroundColor: "#091908",
+    paddingTop: 30
+    },
+    button: {
+        flexDirection: 'row', // Arrange children in a row
+        alignItems: 'center', // Align items vertically centered
+        justifyContent: 'center', // Align items horizontally centered
+        width: 100, 
+        height: 50,
+        top: 30,
+        left: 7, 
+        backgroundColor: "#0F1C0D"
+    },
+    icon: {
+        marginRight: 50,
+        marginLeft: 0
     },
     diseases: {
       color: "#eeeeee",
       fontSize: 25,
-      marginTop: 55,
+      marginTop: 60,
       marginBottom: 7.5,
       marginLeft: 60
     },

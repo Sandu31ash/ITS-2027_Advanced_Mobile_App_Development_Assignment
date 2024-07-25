@@ -7,6 +7,9 @@ import CheckBox from '@react-native-community/checkbox';
 import { Icon } from 'react-native-vector-icons/Icon';
 import { blue, red } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
 import { useNavigation } from '@react-navigation/native';
+import { COLORS } from '@/constants/Colors';
+import Index from '..';
+import PlantDetail from '../plantdetail';
 // import { plantdetail } from '../plantdetail';
 
 export default function home() {
@@ -24,9 +27,8 @@ export default function home() {
 
       <TouchableOpacity 
         style={styles.button}
-        onPress={() => router.push('/index')} 
-      >
-        <Ionicons name="arrow-back" size={24} color="#8e8e8e" style={styles.icon} />
+        onPress={() => navigation.goBack()} >
+        <Ionicons name="arrow-undo-outline" size={24} color="#b3b3b3" style={styles.icon} />
       
       </TouchableOpacity>
 
@@ -51,7 +53,11 @@ export default function home() {
 
       
         <View style={styles.viewFav}>
-          <TouchableOpacity style={styles.viewFavIn} onPress={() => navigation.navigate('plantdetail')}>
+          <TouchableOpacity 
+            style={styles.viewFavIn} 
+            // onPress={() => navigation.navigate('plantdetail')}>
+              onPress={() => router.push('plantdetail')}>
+
             <Image
               style={styles.imageFav}
               source={require('../../assets/images/aglaonema.png')}
@@ -76,13 +82,16 @@ export default function home() {
       
         <View style={styles.textViewFav}>
           <Text style={styles.textFav}>Most Popular</Text>
-          <TouchableOpacity style={styles.textView} onPress={() => router.push('/plants')}>
+          <TouchableOpacity 
+            style={styles.textView} 
+            // onPress={() => router.push('/plants')}>
+            onPress={() => router.push('/plants')}>
             <Text style={styles.viewAll}>View All</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.viewFav}>
-        <TouchableOpacity style={styles.viewFavIn} onPress={() => router.push('/profile')}>
+        <TouchableOpacity style={styles.viewFavIn} onPress={() => router.push('neonpothos')}>
           <Image
             style={styles.imageFav}
             source={require('../../assets/images/neon-pothos.png')}
@@ -115,7 +124,8 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: "center",
     // alignItems: "center",
-    backgroundColor: "#091908"
+    backgroundColor: "#091908",
+    paddingTop: 30
   },
   button: {
     flexDirection: 'row', // Arrange children in a row
@@ -124,15 +134,14 @@ const styles = StyleSheet.create({
     width: 100, 
     height: 50,
     top: 30,
-    left: 5, 
-    backgroundColor: "#0F1C0D"
+    left: 7
   },
   text: {
     fontSize: 31,
     fontWeight: '100',
     color: 'white',
     marginLeft: 50,
-    marginTop: 40,
+    marginTop: 60,
     marginBottom: 10
   },
   text1: {

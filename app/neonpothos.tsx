@@ -2,20 +2,12 @@
 import { COLORS } from '@/constants/Colors';
 import { FONTS } from '@/constants/fonts';
 import { Ionicons } from '@expo/vector-icons';
-import { useLocalSearchParams, useNavigation } from 'expo-router';
+import { useNavigation } from 'expo-router';
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { red } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
 
-export default function PlantDetail() {
-
-// const PlantDetail = ({navigation,route}: any) => {
-
-  // const ItemOfIndex = useStore((state: any)=>
-  //   route.params.id == 'p1' ? state.
-  // )
-
-  // console.log('route = ', route.params);
+export default function NeonPothos() {
 
   const navigation = useNavigation();
 
@@ -32,12 +24,12 @@ export default function PlantDetail() {
       <View style={styles.plantBox}>
         <Image
           style={styles.imagePlant}
-          source={require('../assets/images/aglaonemanobg.png')}
+          source={require('../assets/images/neon-pothosnobg.png')}
         />
-        <Text style={styles.text}>Aglaonema</Text>
+        <Text style={styles.text}>Neon Pothos</Text>
         <Text style={styles.text1}>Indoor plant</Text>
         <Text style={styles.text2}>
-          Aglaonema species, commonly known as the Chinese Evergreen plant, are popular houseplants adored by gardening enthusiasts across the world. These plants add a mesmerizing aesthetic to homes and offices.
+        One of the most popular and eye-catching varieties of pothos, neon pothos is characterized by neon green, heart-shaped leaves and a vining growth habit. This low-maintenance houseplant thrives in bright, moist but well-draining soil, and average-to-high humidity levels.
         </Text>
 
         <View style={styles.detailBox}>
@@ -114,10 +106,11 @@ const styles = StyleSheet.create({
     marginLeft: 0
   },
   imagePlant: {
-    width: 300,
-    height: 350,
-    top: -275,
-    alignSelf: 'center'
+    width: 325,
+    height: 375,
+    top: -300,
+    alignSelf: 'center',
+    marginBottom: 0
   },
   plantBox: {
     backgroundColor: COLORS.white,
@@ -133,7 +126,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: COLORS.darkgreen,
     marginLeft: 35,
-    top: -250,
+    top: -275,
     fontFamily: FONTS.mon.fontFamily
   },
   text1: {
@@ -141,7 +134,7 @@ const styles = StyleSheet.create({
     color: COLORS.darkgreen,
     marginLeft: 35,
     marginTop: 5,
-    top: -250,
+    top: -275,
     // fontFamily: FONTS.mon.fontFamily
   },
   text2: {
@@ -149,7 +142,7 @@ const styles = StyleSheet.create({
     color: COLORS.darkgreen,
     marginLeft: 35,
     marginTop: 18,
-    top: -250,
+    top: -275,
     textAlign: 'justify',
     width: 265,
     // fontFamily: FONTS.mon.fontFamily
@@ -159,7 +152,7 @@ const styles = StyleSheet.create({
     height: 100,
     backgroundColor: '#e6e6e6',
     left: 35,
-    top: -225,
+    top: -250,
     padding: 10,
     borderRadius: 20,
     flexDirection: 'row',
@@ -193,9 +186,3 @@ const styles = StyleSheet.create({
     fontSize: 18
   }
 });
-
-export default PlantDetail;
-
-function useStore(arg0: (state: any) => any) {
-  throw new Error('Function not implemented.');
-}
