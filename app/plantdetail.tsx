@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PlantDetail;
+// export default PlantDetail;
 
 function useStore(arg0: (state: any) => any) {
   throw new Error('Function not implemented.');

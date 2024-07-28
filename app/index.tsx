@@ -3,8 +3,28 @@ import { Button, StatusBar, Text, View, StyleSheet, TouchableOpacity, ActivityIn
 import * as Font from 'expo-font';
 import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import HomeScreen from "@/app-example/(tabs)";
+// import SplashScreen from "./SplashScreenView";
 
 export default function Index() {
+
+  // const [isShowSplash, setIsShowSplash] = useState(true);
+
+  // useEffect(() => {
+  //   setTimeout(()=>{
+  //     setIsShowSplash(false);
+  //   }, 3000);
+  // });
+
+  // return<>
+  //   {isShowSplash ? (
+  //     <SplashScreen />
+  //   ) : (
+  //     <HomeScreen />
+  //   )
+  // }
+  // </>;
+
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(() => {
@@ -103,16 +123,18 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: "#243F20",
+    // color: "#243F20",
+    color: "#8e8e8e",
     // fontFamily: 'Chicle-Regular.ttf',
-    fontSize: 60,
+    fontSize: 75,
+    fontWeight: 'bold',
     alignItems: 'center', // Align items vertically centered
     justifyContent: 'center',
     textShadowColor: 'rgba(0, 0, 0, 1)', // Shadow color
     textShadowOffset: { width: 3, height: 4 }, // Shadow offset
     textShadowRadius: 10, // Shadow blur radius
     // width: 152,
-    width: 208
+    width: 260
   },
   text1: {
     color: "#8e8e8e",
